@@ -1,0 +1,64 @@
+{% extends "Base.html" %}
+{% block title  %}Courses{% endblock %}
+
+{% block content %}
+
+ {% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+{% endfor %}
+<style>
+    .scrollable{
+    height: 400px;
+    overflow: scroll;
+    }
+</style>
+<div class="container">
+    <h3 class="text-white text-center">Select Year and Section</h3>
+    <form action="{{url_for('courses1')}}" class="form-inline  my-2 my-lg-0" method="post">
+
+    </form>
+
+<div class="card container w-100  d-flex flex-row mx-auto mt-5 w-50 pr-3 pl-3 py-3" >
+
+    <div class="scrollable">
+
+    <table class="table mx-auto">
+  <thead>
+    <tr>
+
+
+        <th scope="col">SECTION</th>
+        <th scope="col">SUBJECT</th>
+        <th scope="col">INSTRUCTOR</th>
+        <th scope="col">UNITS</th>
+        <th scope="col">TIME/SCHEDULE</th>
+        <th scope="col">LOCATION</th>
+    </tr>
+  </thead>
+  <tbody> {% for looks in look %}
+    <tr>
+        <td>{{ looks.Section }}</td>
+        <td>{{ looks.subject }}</td>
+        <td>{{ looks.instructor }}</td>
+        <td>{{ looks.units }}</td>
+        <td>{{ looks.time }}</td>
+        <td>{{ looks.location }}</td>
+    </tr>
+   {% endfor %}
+
+
+  </tbody>
+</table>
+
+</div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    {% endblock %}

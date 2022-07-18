@@ -1,0 +1,16 @@
+{% extends "Base.html" %}
+{% block title  %}AdminLogIn{% endblock %}
+
+{% block content %}
+<div class="card mx-auto mt-5 w-50 pr-3 pl-3 py-3" >
+<h1 class="text-center">Admin Only</h1>
+     <br/>
+        <a class="btn btn-success pr-3 pl-3 py-3" href="{{url_for('adminan')}}">Add Announcement</a>
+        <br/>
+        <a class="btn btn-success pr-3 pl-3 py-3" href="{{url_for('admincour')}}">Add Curriculum</a>
+        <br/>
+        <a class="btn btn-success pr-3 pl-3 py-3" href="{{url_for('admingrade')}}">Add Grades</a>
+        <br/>
+        <a class="btn btn-success pr-3 pl-3 py-3" href="{{url_for('adminreq')}}">Student Requests</a>
+</div>
+{% endblock %}

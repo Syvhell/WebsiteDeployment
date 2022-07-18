@@ -1,0 +1,47 @@
+{% extends "Base.html" %}
+{% block title  %}Request{% endblock %}
+
+{% block content %}
+
+
+
+
+ {% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+{% endfor %}
+
+
+ <div class="card mx-auto mt-5 w-50 pr-3 pl-3 py-3" >
+        <h3 class="card-title font-weight-bold text-center">Request Certificates</h3>
+        <form method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag()}}
+            <br/>
+            {{ form.sem.label(class="form-label")}}
+            {{ form.sem (class="form-control",placeholder="1st Semester/2nd Semester")}}
+            <br/>
+            {{ form.cogcoe.label(class="form-label")}}
+            {{ form.cogcoe(class="form-control",placeholder="COG/COE")}}
+            <br/>
+            {{ form.payment.label(class="form-label")}}
+            {{ form.payment(class="form-control",placeholder="E-Wallet Gcash/Coins")}}
+            <br/>
+             {{ form.reference.label(class="form-label")}}
+            {{ form.reference(class="form-control",placeholder="#Reciept Numbers")}}
+            <br/>
+
+            <div class="d-grid gap-2  d-md-flex justify-content-md-end">
+                {{ form.submit(class="btn btn-success pr-2 pl-2 py-2") }}
+
+            </div>
+        </form>
+    </div>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "Base.html" %}
+{% block title  %}Signup{% endblock %}
+
+{% block content %}
+<style>
+    .scrollable{
+    height: 300px;
+    overflow: scroll;
+    }
+</style>
+
+<div class="container">
+
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+
+ <div class="card mx-auto mt-5 w-90 pr-3 pl-3 py-3" >
+    <h1>STUDENT REQUEST</h1>
+    <div class="scrollable">
+    <table class="table mx-auto">
+  <thead>
+    <tr>
+        <th scope="col">ID_NUMBER</th>
+        <th scope="col">NAME</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">SEMESTER</th>
+        <th scope="col">CERT REQUEST</th>
+        <th scope="col">MODE OF PAYMENT</th>
+        <th scope="col">PAYMENT RECEIPT</th>
+        <th scope="col">DATE REQUESTED</th>
+        <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for req in reqs %}
+    <tr>
+        <td>{{req.re.ID_NUMBER}}</td>
+        <td>{{req.re.name}}</td>
+        <td>{{req.re.email}}</td>
+        <td>{{req.sem}}</td>
+        <td>{{req.cogcoe}}</td>
+        <td>{{req.payment}}</td>
+        <td>{{req.proof}}</td>
+        <td>{{req.date_added}}</td>
+        <td><a class="btn btn-outline-danger btn-sm" href="{{url_for('deletes',id=req.id)}}">DELETE</a></td>
+    </tr>
+   {% endfor %}
+
+  </tbody>
+</table>
+ </div>
+     </div>
+    <div class="d-grid gap-2  d-md-flex justify-content-md-end">
+     <a class="btn btn-success pr-3 pl-3 py-3" href="{{url_for('admin')}}">BACK>></a>
+     </div>
+ </div>
+
+    {% endblock %}

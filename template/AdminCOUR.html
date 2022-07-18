@@ -1,0 +1,53 @@
+{% extends "Base.html" %}
+{% block title  %}Signup{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+
+       <div class="card mx-auto  mt-2 w-50 pr-3 pl-3 py-3" >
+        <h3 class="card-title font-weight-bold text-center">Add Subjects</h3>
+        <form  method="POST">
+            {{ form.hidden_tag()}}
+
+            {{ form.section.label(class="form-label")}}
+            {{ form.section (class="form-control",placeholder="1A,2A,3A,4A")}}
+
+            {{ form.subject.label(class="form-label")}}
+            {{ form.subject (class="form-control",placeholder="Enter Subject")}}
+
+            {{ form.instructor.label(class="form-label")}}
+            {{ form.instructor(class="form-control",placeholder="Enter Instructor")}}
+
+
+            {{ form.units.label(class="form-label")}}
+            {{ form.units(class="form-control",placeholder="Enter Units")}}
+
+
+            {{ form.time.label(class="form-label")}}
+            {{ form.time(class="form-control",placeholder="Enter Time")}}
+
+            {{ form.location.label(class="form-label")}}
+            {{ form.location(class="form-control",placeholder="Enter Location")}}
+            <br/>
+            <div class="d-grid gap-2  d-md-flex justify-content-md-end">
+                {{ form.submit(class="btn btn-success pr-2 pl-2 py-2") }}
+                <a class="btn btn-success pr-1 pl-1 py-1" href="{{url_for('admincour1')}}">Modify </a>
+                <a class="btn btn-success pr-1 pl-1 py-1" href="{{url_for('admin')}}">Go BACK </a>
+            </div>
+        </form>
+    </div>
+
+
+
+
+ </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "Base.html" %}
+{% block title  %}Courses{% endblock %}
+
+{% block content %}
+
+ {% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+{% endfor %}
+<div class="container">
+    <div class="card mx-auto   mt-2 w-50 pr-3 pl-3 py-3" >
+    <form action="/upcourse/{{update.id}}" method="post">
+
+              {{ form.hidden_tag()}}
+            <br/>
+
+            {{ form.section.label(class="form-label")}}
+            {{ form.section (class="form-control" ,value = update.Section)}}
+
+            {{ form.subject.label(class="form-label")}}
+            {{ form.subject (class="form-control", value = update.subject)}}
+
+            {{ form.instructor.label(class="form-label")}}
+            {{ form.instructor(class="form-control", value = update.instructor)}}
+
+
+            {{ form.units.label(class="form-label")}}
+            {{ form.units(class="form-control",value = update.units)}}
+
+
+            {{ form.time.label(class="form-label")}}
+            {{ form.time(class="form-control",value = update.time)}}
+
+            {{ form.location.label(class="form-label")}}
+            {{ form.location(class="form-control",value = update.location)}}
+ <br/>
+             {{ form.submit(class="btn btn-success") }}
+
+
+
+    </form>
+      </div>
+</div>
+
+ {% endblock %}

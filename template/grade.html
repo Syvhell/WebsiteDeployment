@@ -1,0 +1,58 @@
+{% extends "Base.html" %}
+{% block title  %}Grades{% endblock %}
+
+{% block content %}
+
+
+
+
+ {% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+{% endfor %}
+
+<div class="container">
+    <h3 class="text-white text-center">View Grade</h3>
+    <form action="{{url_for('grades1')}}" class="form-inline  my-2 my-lg-0" method="post">
+        {{ form.hidden_tag()}}
+        {{form.Id_Number(class="form-control mr-sm-2 type=search ",value = current_user.ID_NUMBER)}}
+        {{form.submit(class="btn btn-outline-success my-2 my-sm-0")}}
+    </form>
+
+<div class="card container w-100  d-flex flex-row mx-auto mt-5 w-50 pr-3 pl-3 py-3" >
+
+
+
+    <table class="table mx-auto">
+  <thead>
+    <tr>
+
+
+        <th scope="col">SUBJECT</th>
+        <th scope="col">INSTRUCTOR</th>
+        <th scope="col">UNITS</th>
+        <th scope="col">GRADE</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+
+  </tbody>
+</table>
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+{% endblock %}

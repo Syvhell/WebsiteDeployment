@@ -1,0 +1,56 @@
+
+.container{
+	max-width: 90%;
+	width: 100%;
+	padding: 25px;
+	border-radius: 25px 30px;
+	background: white;
+	max-height: 600px;
+	margin-top: 1%;
+	margin-right: 5%;
+
+}
+.container .heading{
+	font-size: 25px;
+	font-weight: 500;
+	position: relative;
+	text-align: left;
+	padding: 0 0 10px 0;
+
+}
+
+
+.container form .card-details{
+	margin-top: 25px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+form .card-details .card-box{
+	width: calc(100%/2 - 10px);
+	margin-bottom: 15px;
+	display: flex;
+	justify-content: space-between;
+}
+.card-details .card-box .details{
+	display: block;
+	font-weight: 500;
+	margin-bottom: 5px;
+}
+
+.card-details .card-box input:focus,
+.card-details .card-box input:valid{
+	border-color: #9b59b6;
+}
+
+form .button{
+	text-align: right;
+	padding-left: 80%;
+}
+div .button btn{
+padding-top: 10px
+
+}
+ .modal-header{
+    color:white;
+    }

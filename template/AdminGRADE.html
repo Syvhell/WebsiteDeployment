@@ -1,0 +1,64 @@
+{% extends "Base.html" %}
+{% block title  %}Signup{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+
+
+    <h1 class="text-white font-weight-bold">ADD GRADE</h1>
+
+         <br/>
+    <h4 class="text-white font-weight-bold">Fill Up Eligibly</h4>
+    <br/>
+    <form method="POST">
+        <div class="row">
+  <div class="col">
+       {{ form.hidden_tag()}}
+
+        {{ form.studentidnumber.label(class="form-label col text-white")}}
+        {{ form.studentidnumber(class="form-control ",placeholder="19-99999")}}
+  </div>
+  <div class="col">
+    {{ form.subject.label(class="form-label col text-white")}}
+        {{ form.subject(class="form-control ",placeholder="Enter Subject")}}
+  </div>
+</div>
+        <div class="row">
+  <div class="col">
+
+         {{ form.instructor.label(class="form-label col text-white")}}
+        {{ form.instructor(class="form-control ",placeholder="Enter Instructor")}}
+  </div>
+  <div class="col">
+    {{ form.units.label(class="form-label col text-white")}}
+        {{ form.units(class="form-control ",placeholder="Enter Units")}}
+  </div>
+</div>
+        <div class="row">
+  <div class="col">
+        {{ form.grade.label(class="form-label col text-white")}}
+        {{ form.grade(class="form-control ",placeholder="Enter Grade")}}
+  </div>  <br/>
+
+ </div>
+      <br/>
+    {{ form.submit(class="btn btn-success") }}
+
+
+    </form>
+
+    <br/>
+
+   <a class="btn btn-success pr-3 pl-3 py-3" href="{{url_for('admin')}}">BACK>></a>
+</div>
+
+    {% endblock %}

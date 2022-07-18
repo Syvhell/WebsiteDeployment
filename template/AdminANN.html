@@ -1,0 +1,39 @@
+{% extends "Base.html" %}
+{% block title  %}Signup{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+
+    <div class="card mx-auto mt-5 w-50 pr-3 pl-3 py-3" >
+        <h3 class="card-title font-weight-bold text-center">Announcements Adder</h3>
+            <form method="POST">
+                {{ form.hidden_tag()}}
+                <br/>
+                {{ form.title.label(class="form-label")}}
+                {{ form.title (class="form-control",placeholder="Example")}}
+                <br/>
+                {{ form.slug.label(class="form-label")}}
+                {{ form.slug(class="form-control",placeholder="Seminar/Webinar")}}
+                <br/>
+                {{ form.content.label(class="form-label")}}
+                {{ form.content(class="form-control",placeholder="Infos")}}
+                <br/>
+                <div class="d-grid gap-2  d-md-flex justify-content-md-end">
+                {{ form.submit(class="btn btn-success pr-2 pl-2 py-2") }}
+                    <a class="btn btn-success pr-1 pl-1 py-1" href="{{url_for('deli')}}">Delete Announcements </a>
+                    <a class="btn btn-success pr-1 pl-1 py-1" href="{{url_for('admin')}}">Go BACK </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    {% endblock %}

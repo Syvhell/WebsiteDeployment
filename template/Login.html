@@ -1,0 +1,59 @@
+{% extends "Base.html" %}
+{% block title  %}Login{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    {% endfor %}
+
+
+     <br/>
+    <div class="card mx-auto mt-5 w-50 pr-3 pl-3 py-3" >
+        <h3 class="card-title font-weight-bold text-center">Log In</h3>
+        <form method="POST">
+            {{ form.hidden_tag()}}
+            <br/>
+            {{ form.email.label(class="form-label")}}
+            {{ form.email (class="form-control",placeholder="Enter Email")}}
+            <br/>
+            {{ form.password_hash.label(class="form-label")}}
+            {{ form.password_hash(class="form-control",placeholder="Enter Password")}}
+            <br/>
+            <div class="d-grid gap-2">
+                {{ form.submit(class="btn btn-success") }}
+            </div>
+            <br/>
+            <a class="card-title text-primary font-italic" data-toggle="modal" data-target="#exampleModal" href="#">Forgot Password?</a>
+                </form>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Forgot Password?</h5>
+
+      </div>
+      <div class="modal-body">
+        <h6>Contact Admin/Teacher</h6>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+</div>
+{% endblock %}

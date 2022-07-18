@@ -1,0 +1,70 @@
+{% extends "Base.html" %}
+{% block title  %}Courses{% endblock %}
+
+{% block content %}
+
+ {% for message in get_flashed_messages() %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{message}}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+{% endfor %}
+
+<style>
+    .scrollable{
+    height: 400px;
+    overflow: scroll;
+    }
+</style>
+
+
+
+<div class="container">
+    <h3 class="text-white text-center"> Year and Section</h3>
+
+<div class="card container w-100  d-flex flex-row mx-auto mt-5 w-50 pr-3 pl-3 py-3 " >
+    <div class="scrollable">
+    <table class="table mx-auto"  data-bs-spy="scroll" >
+  <thead>
+    <tr>
+        <th scope="col">SECTION</th>
+        <th scope="col">SUBJECT</th>
+        <th scope="col">INSTRUCTOR</th>
+        <th scope="col">UNITS</th>
+        <th scope="col">TIME/SCHEDULE</th>
+        <th scope="col">LOCATION</th>
+        <th scope="col">OPTIONS</th>
+    </tr>
+  </thead>
+  <tbody> {% for courses in course %}
+    <tr >
+        <td>{{ courses.Section }}</td>
+        <td>{{ courses.subject }}</td>
+        <td>{{ courses.instructor }}</td>
+        <td>{{ courses.units }}</td>
+        <td>{{ courses.time }}</td>
+        <td>{{ courses.location }}</td>
+         <td><a class="btn btn-outline-danger btn-sm" href="{{url_for('deletec',id=courses.id)}}">DELETE</a></td>
+        <td><a class="btn btn-outline-danger btn-sm" href="{{url_for('upcourse',id=courses.id )}}" >EDIT</a></td>
+    </tr>
+   {% endfor %}
+
+
+    </tbody>
+    </table>
+    </div>
+
+</div>
+     <div class="d-grid gap-2  d-md-flex justify-content-md-end">
+     <a class="btn btn-success pr-3 pl-3 py-3" href="{{url_for('admincour')}}">BACK>></a>
+     </div>
+
+
+
+
+
+
+</div>
+{% endblock %}
